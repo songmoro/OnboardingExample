@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct OnboardingExampleApp: App {
+    @AppStorage("isOnboarding") var isOnboarding: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnboarding { // MARK: ContentView
+                ContentView()
+            } //: ContentView
+            else { // MARK: Onboarding
+                ExtractedView()
+            } //: Onboarding
         }
     }
 }
